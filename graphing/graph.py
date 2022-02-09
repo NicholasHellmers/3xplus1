@@ -2,7 +2,7 @@ import csv
 import matplotlib.pyplot as plt
 n =[]
 loops = []
-with open('data/largestLoops.csv', newline='') as csvfile:
+with open('../data/largestLoops.csv', newline='') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
         n.append(row['n'])

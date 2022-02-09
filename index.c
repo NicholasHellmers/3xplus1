@@ -4,16 +4,18 @@
 int main() {
     FILE *fp_o;
     FILE *fp_ll;
+    // FILE *fp_r;
 
-    fp_o = fopen("./data/output.csv", "a");
+    fp_o = fopen("./data/output.csv", "w");
     fp_ll = fopen("./data/largestLoops.csv", "a");
-    fprintf(fp_ll,"n,loops\n");
-    fprintf(fp_o,"n,loops\n");
+    // fp_r = fopen("./data/lastComputuation.csv", "r+");
+    // char LC[150];
+
 
     unsigned int y = 0; // cycle tracker
     unsigned int y_max = 0; // current max cycles
     unsigned int z; // current sum tracker
-    for (unsigned int i = 2; i < 100000000; i++) {
+    for (unsigned int i = 2; i < 1000000000; i++) {
         y = 0;
         z = i;
         while(z != 1) {
@@ -27,13 +29,14 @@ int main() {
         if (y > y_max) {
             y_max = y;
             fprintf(fp_ll,"%d,%d\n", i, y);
-            printf("New max: %d\n", i);
+            printf("New max: %d\n,%d\n", i, y);
         }
-        fprintf(fp_o,"%d,%d\n", i, y);
+        fprintf(fp_o,"%d,%d\n", i, y); // This is in case it is desired to record all output data
     }
     
     fclose(fp_o);
     fclose(fp_ll);
+    // fclose(fp_r);
 
     return 0;
 

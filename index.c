@@ -15,7 +15,7 @@ int main() {
     unsigned int y = 0; // cycle tracker
     unsigned int y_max = 0; // current max cycles
     unsigned int z; // current sum tracker
-    for (unsigned int i = 2; i < 1000000000; i++) {
+    for (unsigned int i = 2; i < 1000000; i++) {
         y = 0;
         z = i;
         while(z != 1) {
@@ -29,9 +29,9 @@ int main() {
         if (y > y_max) {
             y_max = y;
             fprintf(fp_ll,"%d,%d\n", i, y);
-            printf("New max: %d\n,%d\n", i, y);
+            printf("New max: %d,%d\n", i, y);
         }
-        fprintf(fp_o,"%d,%d\n", i, y); // This is in case it is desired to record all output data
+        //fprintf(fp_o,"%d,%d\n", i, y); // This is in case it is desired to record all output data
     }
     
     fclose(fp_o);

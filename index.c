@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 int main() {
     FILE *fp_o;
@@ -15,7 +16,8 @@ int main() {
     unsigned int y = 0; // cycle tracker
     unsigned int y_max = 0; // current max cycles
     unsigned int z; // current sum tracker
-    for (unsigned int i = 2; i < 1000000; i++) {
+    float startTime = (float)clock()/CLOCKS_PER_SEC;
+    for (unsigned int i = 2; i < 300000000; i++) {
         y = 0;
         z = i;
         while(z != 1) {
@@ -33,7 +35,9 @@ int main() {
         }
         //fprintf(fp_o,"%d,%d\n", i, y); // This is in case it is desired to record all output data
     }
-    
+    float endTime = (float)clock()/CLOCKS_PER_SEC;
+    float timeElapsed = endTime - startTime;
+    printf("%f\n",timeElapsed);
     fclose(fp_o);
     fclose(fp_ll);
     // fclose(fp_r);
